@@ -37,9 +37,7 @@ class User():
         - `None` if `pwd` is not a string
         - Hash `pwd` in MD5 before assign to `__password`
         """
-        if pwd is None or type(pwd) is not str:
-            self.__password = None
-        else:
+        if pwd is not None and type(pwd) is str:
             self._password = hashlib.md5(pwd.encode()).hexdigest().lower()
 
     def is_valid_password(self, pwd):
@@ -101,3 +99,4 @@ password")
     if user_2.is_valid_password("No pwd"):
         print("is_valid_password should return False if no password set \
 before")
+
